@@ -1,8 +1,23 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Navbar from './components/Navbar'
+import Home from './pages/Home'
+import Explorador from './pages/Explorador'
+import Tendencias from './pages/Tendencias'
+
 function App() {
   return (
-    <div className="min-h-screen bg-gray-950 text-white flex items-center justify-center">
-      <h1 className="text-3xl font-bold text-green-400">ScoutBet ⚽</h1>
-    </div>
+    <BrowserRouter>
+      <div className="min-h-screen bg-gray-950 text-white">
+        <Navbar />
+        <main className="max-w-6xl mx-auto px-6 py-8">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/explorador" element={<Explorador />} />
+            <Route path="/tendencias" element={<Tendencias />} />
+          </Routes>
+        </main>
+      </div>
+    </BrowserRouter>
   )
 }
 
