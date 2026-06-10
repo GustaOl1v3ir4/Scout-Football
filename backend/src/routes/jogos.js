@@ -117,7 +117,7 @@ router.get('/forma', async (req, res) => {
     const response = await FootballApi.get('fixtures', {
       params: {
         team: timeId,
-        last: quantidade || 10
+        season: 2024
       }
     })
 
