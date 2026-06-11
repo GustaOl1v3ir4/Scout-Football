@@ -71,7 +71,7 @@ router.get('/ultimos', async (req, res) => {
       return dataJogo < hoje
     })
 
-    const ultimos = jogosRealizados.slice(-(quantidade || 10))
+    const ultimos = jogosRealizados.slice(-(Number(quantidade) || 10))
 
     res.json({ results: ultimos.length, response: ultimos })
   } catch (erro) {
@@ -121,9 +121,18 @@ router.get('/forma', async (req, res) => {
       }
     })
 
-    const jogos = response.data.response
+    const hoje = new Date()
 
-    const forma = jogos.map(jogo => {
+    // Filtra só jogos já realizados
+    const jogosRealizados = response.data.response.filter(jogo => {
+      const dataJogo = new Date(jogo.fixture.date)
+      return dataJogo < hoje
+    })
+
+    // Pega os últimos N jogos
+    const ultimos = jogosRealizados.slice(-(Number(quantidade) || 10))
+
+    const forma = ultimos.map(jogo => {
       const timeCasa = jogo.teams.home
       const timeFora = jogo.teams.away
       const golsCasa = jogo.goals.home
