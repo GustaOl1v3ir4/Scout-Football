@@ -150,7 +150,7 @@ function Tendencias() {
       <h1 className="text-2xl font-bold mb-2">Tendências</h1>
       <p className="text-gray-400 text-sm mb-6">Análise automática de padrões nos últimos 20 jogos</p>
 
-      {/* Busca */}
+      
       <div className="flex gap-3 mb-8">
         <input
           type="text"
@@ -171,7 +171,7 @@ function Tendencias() {
       {erro && <p className="text-red-400 mb-4">{erro}</p>}
       {carregando && <p className="text-gray-400 mb-4">Analisando dados...</p>}
 
-      {/* Lista de times */}
+      
       {times.length > 0 && !timeSelecionado && (
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
           {times.map(t => (
@@ -188,7 +188,7 @@ function Tendencias() {
         </div>
       )}
 
-      {/* Insights */}
+      
       {timeSelecionado && insights.length > 0 && (
         <div>
           <div className="flex items-center gap-4 mb-6">
